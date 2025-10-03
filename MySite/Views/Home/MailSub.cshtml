@@ -4,69 +4,46 @@
     ViewBag.Title = "MailSub";
 }
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Index", "Home", FormMethod.Post, new { @class = "w-100" }))
 {
-    @Html.ValidationSummary()
-
-
+    @Html.ValidationSummary(true, "", new { @class = "alert alert-danger" })
 
     <div class="container">
-        <div class="row" style="padding-top:100px; padding-bottom:100px;">
-            <div class="container matpad" style="margin-left:auto;margin-right:auto; background-color:#AC3B61; max-width:500px; box-shadow:2px 2px 2px 2px ; border-radius:15px;">
-                <div class="row" style="padding-top:50px; padding-bottom:50px; ">
-                    <div style="margin-left:auto; margin-right:auto">
-                        <form method="post" action="Index" style="align-content:center; padding-bottom:20px;padding-top:20px;">
-                            <div class="container" style="margin-left:auto;margin-right:auto; padding-left:40px; padding-right:40px;">
-                                <div class="row" style="align-content:center; padding-bottom:40px; margin-left:auto;margin-right:auto;">
-                                    <div class="col-lg-12 col-md-12 col-12">
-                                        <h5 class="mailhead" style="color:white ; text-align:center !important; align-content:center !important; align-items:center !important">I WOULD LIKE TO HEAR FROM YOU!</h5>
-                                    </div>
-                                </div>
+        <div class="row justify-content-center py-5">
+            <div class="col-lg-6 col-md-8 col-sm-12 matpad" style="background-color:#AC3B61; box-shadow:2px 2px 8px #888; border-radius:15px;">
+                <div class="py-4">
+                    <h5 class="mailhead text-center text-white mb-4">I WOULD LIKE TO HEAR FROM YOU!</h5>
 
+                    <div class="form-group row">
+                        <label for="To" class="col-sm-4 col-form-label textbold text-white">Mail ID:</label>
+                        <div class="col-sm-8">
+                            @Html.TextBoxFor(m => m.To, new { @class = "form-control", @id = "To", @placeholder = "Your email address" })
+                            @Html.ValidationMessageFor(m => m.To, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
 
-                                <div class="row">
-                                    <div class="col-lg-4 col-md-4 col-sm-12">
-                                        <span class="form-control-static textbold"> Mail ID: </span>
-                                    </div>
-                                    <div class="col-lg-8 col-md-8 col-sm-12">
-                                        @Html.TextBoxFor(m => m.To, null, new { @class = "form-control" })
-                                        @Html.ValidationMessageFor(m => m.To, "", new { @class = "error" })
-                                    </div>
-                                </div>
-                                <br />
-                                <div class="row">
-                                    <div class="col-lg-4 col-md-4 col-sm-12">
-                                        <span class="form-control-static textbold"> Subject: </span>
-                                    </div>
-                                    <div class="col-lg-8 col-md-8 col-sm-12">
-                                        @Html.TextBoxFor(m => m.Subject, null, new { @class = "form-control" })
-                                    </div>
-                                </div>
-                                <br />
-                                <div class="row">
-                                    <div class="col-lg-4 col-md-4 col-sm-12">
-                                        <span class="form-control-static textbold"> FeedBack: </span>
-                                    </div>
-                                    <div class="col-lg-8 col-md-8 col-sm-12">
-                                        @Html.TextAreaFor(m => m.Body, new { @class = "form-control" })
-                                    </div>
-                                </div>
-                                <br />
-                                <div class="row">
-                                    <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="form-group row">
+                        <label for="Subject" class="col-sm-4 col-form-label textbold text-white">Subject:</label>
+                        <div class="col-sm-8">
+                            @Html.TextBoxFor(m => m.Subject, new { @class = "form-control", @id = "Subject", @placeholder = "Subject" })
+                        </div>
+                    </div>
 
-                                    </div>
-                                    <div class="col-lg-8 col-md-8 col-sm-12 mailsend">
-                                        <input class="btn btn-primary textbold" type="submit" value="Send" />
-                                    </div>
+                    <div class="form-group row">
+                        <label for="Body" class="col-sm-4 col-form-label textbold text-white">FeedBack:</label>
+                        <div class="col-sm-8">
+                            @Html.TextAreaFor(m => m.Body, 4, 40, new { @class = "form-control", @id = "Body", @placeholder = "Your feedback" })
+                        </div>
+                    </div>
 
-                                </div>
-                            </div>
-                        </form>
+                    <div class="form-group row">
+                        <div class="col-sm-4"></div>
+                        <div class="col-sm-8 text-right">
+                            <input class="btn btn-primary textbold" type="submit" value="Send" />
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
- }
+}

@@ -1,60 +1,69 @@
 ﻿using MySite.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Net;
 using System.Net.Mail;
-using System.Web;
 using System.Web.Mvc;
 
 namespace MySite.Controllers
 {
     public class HomeController : Controller
     {
+        // Store sensitive info in config or environment variables in production!
+        private const string SmtpHost = "smtp.gmail.com";
+        private const int SmtpPort = 587;
+        private const string SenderEmail = "nelakurthisowmya123@gmail.com";
+        private const string SenderPassword = "oqulevhmxoutvpuy";
+
         public ActionResult Index()
         {
             return View();
         }
 
         [HttpPost]
-        public ViewResult Index(MailModel _objModelMail)
+        [ValidateAntiForgeryToken]
+        public ActionResult Index(MailModel model)
         {
-            if (ModelState.IsValid)
-            {
-                MailMessage mail = new MailMessage();
-                mail.To.Add(_objModelMail.To);
-                mail.To.Add("nelakurthisowmya123@gmail.com");
-                mail.From = new MailAddress("nelakurthisowmya123@gmail.com");
+            if (!ModelState.IsValid)
+                return View(model);
 
-                mail.Subject = "Thanks for your Valuable FeedBack" + _objModelMail.Subject;
-                string Body = _objModelMail.Body;
-                mail.Body = Body;
-                mail.IsBodyHtml = true;
-                SmtpClient smtp = new SmtpClient();
-                smtp.Host = "smtp.gmail.com";
-                smtp.Port = 587;
-                smtp.UseDefaultCredentials = false;
-                smtp.Credentials = new System.Net.NetworkCredential("nelakurthisowmya123@gmail.com", "Sowmya@12345"); // Enter seders User name and password  
-                smtp.EnableSsl = true;
-                smtp.Send(mail);
+            try
+            {
+                using (var mail = new MailMessage())
+                {
+                    mail.To.Add(model.To);
+                    mail.To.Add("sowmyanelakurthi.kollu@proton.me");
+                    mail.From = new MailAddress(SenderEmail);
+                    mail.Subject = $"Thanks for your Valuable Feedback - {model.Subject}";
+                    mail.Body = model.Body;
+                    mail.IsBodyHtml = true;
+
+                    using (var smtp = new SmtpClient(SmtpHost, SmtpPort))
+                    {
+                        smtp.UseDefaultCredentials = false;
+                        smtp.Credentials = new NetworkCredential(SenderEmail, SenderPassword);
+                        smtp.EnableSsl = true;
+                        smtp.Send(mail);
+                    }
+                }
+
+                ViewBag.Message = "Mail Sent Successfully!";
                 return View("About");
             }
-            else
+            catch (Exception ex)
             {
-                return View();
+                // Log the error as needed
+                ViewBag.Message = $"Error sending email: {ex.Message}";
+                return View(model);
             }
         }
 
         public ActionResult About()
         {
-
-
             return View();
         }
 
         public ActionResult Contact()
         {
-
-
             return View();
         }
     }

@@ -4,31 +4,32 @@
     ViewBag.Title = "";
 }
 
-<!--Heading of Hii welcome-->
-<div class="container">
-    <div class="row" style="padding-top:100px">
-        <div class="col-lg-3 col-md-3 col-sm-4" >
-            <div style="align-content:center; text-align:center; " oncontextmenu="return false;">
-              <img style="width:150px !important; height:150px !important; border-radius:50%; " src="~/Scripts/src/Attachments/SowmyaPic.jpg" />
-            </div>
+<div class="container py-5">
+    <!-- Profile Section -->
+    <div class="row align-items-center">
+        <div class="col-lg-3 col-md-4 col-sm-4 text-center" oncontextmenu="return false;">
+            <img src="~/Scripts/src/Attachments/SowmyaPic.jpg" alt="Sowmya Nelakurthi" class="rounded-circle img-fluid" style="width:150px; height:150px;" />
         </div>
-        <div class="col-lg-9 col-md-9 col-sm-8">
-            <h1>Sowmya Nelakurthi</h1>
-            <h5>.Net Developer at IBM</h5>
-            <h6>Chennai</h6>
+        <div class="col-lg-9 col-md-8 col-sm-8 pt-3">
+            <h1 class="mb-1">Sowmya Nelakurthi</h1>
+            <h5 class="mb-1">Senior Software Engineer</h5>
+            <h5 class="text-muted">Pune, India</h5>
         </div>
     </div>
 
-</div>
-<!--About Me!!-->
-<div class="container">
-    <div class="row first_gap "oncontextmenu="return false;">
-        <div class="col-lg-12 col-md-12 col-sm-12 ">
-            <span class="matterfont">My name is <span class="namehigh">Sowmya Nelakurthi</span> and I am a technology enthusiast. After my graduation I got hired for a DotNet position in IBM. I was excited because I got a job in the career field that I wanted! Everything is great now. This Website is an effort that i designed on my own to write down all the self tested methods and programming challenges and providing a working solution and real time consultancy to anyone especially youngsters who is stuck up with some software and technology related doubts. I know there is more to say, We all have our own drives and passions. You'll see it on this website itself, It's quite a huge part of who I am.</span>
+    <!-- About Me Section -->
+    <div class="row mt-4" oncontextmenu="return false;">
+        <div class="col-12">
+            <span class="matterfont">
+                My name is <span class="namehigh">Sowmya Nelakurthi</span> and I am a technology enthusiast. I was excited because I got a job in the career field that I wanted! Everything is great now. This website is an effort that I designed on my own to write down all the self-tested methods and programming challenges, providing working solutions and real-time consultancy to anyone—especially youngsters—who are stuck with software and technology-related doubts. I know there is more to say; we all have our own drives and passions. You'll see it on this website itself—it's quite a huge part of who I am.
+            </span>
+        </div>
+    </div>
+
+    <!-- Mail Subscription Partial -->
+    <div class="row mt-5">
+        <div class="col-12">
+            @Html.Partial("MailSub")
         </div>
     </div>
 </div>
-
-@{
-    Html.RenderPartial("MailSub");
-}

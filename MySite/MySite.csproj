@@ -206,12 +206,14 @@
     <Content Include="Scripts\src\Attachments\Image9.JPG" />
     <Content Include="Scripts\src\Attachments\Java.png" />
     <Content Include="Scripts\src\Attachments\Java_P.jpg" />
+    <Content Include="Scripts\src\Attachments\logo.png" />
     <Content Include="Scripts\src\Attachments\Main_Image.jpg" />
     <Content Include="Scripts\src\Attachments\Match_IBM.jpg" />
     <Content Include="Scripts\src\Attachments\MySQL.png" />
     <Content Include="Scripts\src\Attachments\Project_IBM.jpg" />
     <Content Include="Scripts\src\Attachments\Sowmya.JPG" />
     <Content Include="Scripts\src\Attachments\SowmyaPic.jpg" />
+    <Content Include="Scripts\src\Attachments\Udemy.png" />
     <Content Include="Scripts\src\Attachments\Watson Certificate.png" />
     <Content Include="Scripts\src\Attachments\Watson_Visual_Recognition.png" />
     <Content Include="Scripts\src\index.js" />
@@ -296,6 +298,8 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\HeaderView.cshtml" />
+    <Content Include="Views\Home\MailSub.cshtml" />
+    <Content Include="Scripts\src\Attachments\Angular_Asp.net_Certificate.pdf" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
     <Content Include="Scripts\umd\popper.js.flow" />
@@ -306,11 +310,11 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
-    <Content Include="Views\Home\MailSub.cshtml" />
-    <Content Include="Scripts\src\Attachments\Resume_DotNet.pdf" />
+    <Content Include="Scripts\src\Attachments\Sowmya Nelakurthi_CV.pdf" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Properties\PublishProfiles\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -318,10 +322,10 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="Scripts\index.d.ts" />
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+    <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

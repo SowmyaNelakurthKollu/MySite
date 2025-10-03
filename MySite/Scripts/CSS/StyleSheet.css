@@ -242,6 +242,12 @@
             color: white;
             padding-left: 20px;
         }
+        .mailheadtop {
+            font-size: 14px !important;
+            font-weight: bold;
+            color: white;
+            padding-left: 20px;
+        }
     }
 
     @media (min-width:400px) {
@@ -249,6 +255,12 @@
             font-size: 30px !important;
             color: white;
             font-weight: bold;
+        }
+        .mailheadtop {
+            font-size: 20px !important;
+            font-weight: bold;
+            color: white;
+            padding-left: 20px;
         }
     }
 

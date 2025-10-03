@@ -1,30 +1,23 @@
 ﻿<link rel="stylesheet" href="~/Scripts/CSS/Stylesheet.css" type="text/css" />
 
-<nav class="navbar navbar-expand-lg  fixed-top " style="background-color:#9A1750 !important">
-    <a class="navbar-brand navhead"  href="#">
-        @Html.ActionLink("Sowmya", "Index", "Home", new
-      { area = "" }, new { @class = "navbar-brand  textheading " })
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color:#9A1750;">
+    <a class="navbar-brand navhead" href="@Url.Action("Index", "Home")">
+        <span class="textheading">Sowmya</span>
     </a>
-    <button class="navbar-toggler ml-auto navbar-dark"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarText">
-        <span class="navbar-toggler-icon my-toggler">
-        </span>
+    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarText">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                @Html.ActionLink("Home", "Index", "Home", new { @class = " textheading"}) <span class="sr-only">(current)</span>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item @(ViewContext.RouteData.Values["action"].ToString() == "Index" ? "active" : "")">
+                @Html.ActionLink("Home", "Index", "Home", null, new { @class = "nav-link textheading" })
             </li>
-            <li class="nav-item">
-                @Html.ActionLink("About", "About", "Home", new { @class = " textheading" })
+            <li class="nav-item @(ViewContext.RouteData.Values["action"].ToString() == "About" ? "active" : "")">
+                @Html.ActionLink("About", "About", "Home", null, new { @class = "nav-link textheading" })
             </li>
-            <li class="nav-item">
-               @Html.ActionLink("Contact", "Contact", "Home", new { @class = " textheading" })
+            <li class="nav-item @(ViewContext.RouteData.Values["action"].ToString() == "Contact" ? "active" : "")">
+                @Html.ActionLink("Contact", "Contact", "Home", null, new { @class = "nav-link textheading" })
             </li>
         </ul>
-
     </div>
 </nav>
-
